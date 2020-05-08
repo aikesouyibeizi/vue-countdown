@@ -23,7 +23,7 @@
   // 扇形的速度增量step
   const degFanStep = [0.1, 0.18]
   // 初始颜色
-  const color = ['rgba(0, 255, 0, .6)', 'rgba(0, 100, 0, .6)']
+  const color = ['rgba(0, 255, 0, .6)', 'rgba(0, 225, 0, .6)']
 
   const regNumber = /^\d+$/
 
@@ -161,12 +161,12 @@
           // 倒计时开始阶段
           case this.timeLeft >= this.statusChange[0] :
             this.color[0] = 'rgba(0, 255, 0, .6)'
-            this.color[1] = 'rgba(0, 100, 0, .6)'
+            this.color[1] = 'rgba(0, 255, 0, .6)'
             break
           // 倒计时速度第一次加快
           case this.timeLeft >= this.statusChange[1] :
             this.color[0] = 'rgba(255, 255, 0, .6)'
-            this.color[1] = 'rgba(100, 100, 0, .6)'
+            this.color[1] = 'rgba(255, 255, 0, .6)'
             // 运动扇形的速度增量
             this.speedFan += degFanStep[0] * fps / 60
             if (this.currentStatus === 1) {
@@ -177,7 +177,7 @@
           // 倒计时速度第二次加快
           case this.timeLeft <= this.statusChange[1] :
             this.color[0] = 'rgba(255, 0, 0, .6)'
-            this.color[1] = 'rgba(100, 0, 0, .6)'
+            this.color[1] = 'rgba(255, 0, 0, .6)'
             // 运动扇形的速度增量            
             this.speedFan += degFanStep[1] * fps / 60
             // 初次到达statusChange[0]ms - 0ms的时间区间，改变currentStatus为3。保证只进入if判断一次
